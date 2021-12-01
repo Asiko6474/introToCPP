@@ -1,16 +1,11 @@
 #include <iostream>
 #include <cstring>
-#include "Entity.h"
-void changeString(char string[64])
-	{
-	char test[64] = "test";
-	}
-
+#include "Engine.h"
 
 int main()
 {
-	// Icon, health, attack, defense.
-	Entity wompus ('W', 50000000, 5, -20);
+	Engine engine = Engine();
+	engine.run();
 
 	return 0;
 }
