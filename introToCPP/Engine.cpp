@@ -53,7 +53,7 @@ void Engine::update()
 
 	if (m_currentFighter1->getHealth() || m_currentFighter2->getHealth() <= 0 && m_currentFighterIndex >= m_entityCount)
 	{
-		m_applicationShouldclose = true;
+		m_applicationShouldClose = true;
 		return; 
 	}
 		
