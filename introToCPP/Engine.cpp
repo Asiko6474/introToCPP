@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
 
@@ -16,8 +17,8 @@ void Engine::run()
 
 	while (!getApplicationShouldClose())
 	{
-		update();
 		draw();
+		update();
 	}
 
 	end();
@@ -25,13 +26,14 @@ void Engine::run()
 
 void Engine::start()
 {
-	Entity wompus = Entity('W', 130020, 5000, -1500);
-	Entity redactedLittleSkeleton = Entity('r', 44000 - 40000, 45500 - 40, 0);
-	Entity unclePhil = Entity('U', 1, 0, 69420005);
+	Entity wompus = Entity('W', 3, 5, -8);
+	Entity redactedLittleSkeleton = Entity('r', 10, 45, 0);
+	Entity unclePhil = Entity('U', 1, 0, 1);
 
 	m_entities[0] = wompus;
 	m_entities[1] = redactedLittleSkeleton;
 	m_entities[2] = unclePhil;
+	m_entityCount = 3;
 
 	m_currentFighter1 = &m_entities[0];
 	m_currentFighter2 = &m_entities[1];
@@ -51,7 +53,7 @@ void Engine::update()
 		m_currentFighterIndex++;
 	}
 
-	if (m_currentFighter1->getHealth() || m_currentFighter2->getHealth() <= 0 && m_currentFighterIndex >= m_entityCount)
+	if ((m_currentFighter1->getHealth() <= 0 || m_currentFighter2->getHealth() <= 0) && m_currentFighterIndex >= m_entityCount)
 	{
 		m_applicationShouldClose = true;
 		return; 
@@ -63,10 +65,17 @@ void Engine::update()
 
 }
 
+void Engine::draw()
+{
+	m_currentFighter1->printStats();
+	m_currentFighter2->printStats();
+	system("pause");
+	system("cls");
+}
+
+
 void Engine::end()
 {
 }
 
-void Engine::draw()
-{
-}
+
