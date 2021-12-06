@@ -11,6 +11,12 @@ Engine::Engine()
 
 }
 
+Engine::~Engine()
+{
+	delete m_currentFighter1;
+	delete m_currentFighter2;
+}
+
 void Engine::run()
 {
 	start();
@@ -35,9 +41,16 @@ void Engine::start()
 	m_entities[2] = unclePhil;
 	m_entityCount = 3;
 
+	/*int test = 5;
+	Entity* entityPtrs[5];
+	Entity** Entities = new Entity * [test];*/
+
+
 	m_currentFighter1 = &m_entities[0];
 	m_currentFighter2 = &m_entities[1];
 	m_currentFighterIndex = 2;
+
+
 }
 void Engine::update()
 {
