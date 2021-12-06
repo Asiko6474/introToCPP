@@ -42,6 +42,8 @@ void Engine::setCurrentScene(int index)
 void Engine::start()
 {
 	m_sceneCount = 0;
+	Scene Start;
+	Start.getStarted();
 }
 void Engine::update()
 {

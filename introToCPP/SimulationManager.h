@@ -1,6 +1,7 @@
 #pragma once
 #include "Actor.h"
 #include "Entity.h"
+
 class SimulationManager :
 	public Actor
 {
