@@ -5,5 +5,6 @@ class FightScene :
 {
 public:
 	void start() override;
+
 };
 
